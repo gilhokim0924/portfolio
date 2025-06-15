@@ -16,19 +16,20 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        <Link to="/" onClick={closeMenu} className="navbar-logo">
-          Gilho Kim
-        </Link>
-
-        {/* Mobile Menu Button */}
-        <div className="navbar-menu-icon" onClick={toggleMenu}> 
-          {menuOpen ? "x" : "☰"}
+      <div className={`navbar-container ${menuOpen ? 'open' : ''}`}>
+        <div className="navbar-logo-menu-container">
+          <Link to="/" onClick={closeMenu} className="navbar-logo">
+            Gilho Kim
+          </Link>
+          {/* Mobile Menu Button */}
+          <div className="navbar-menu-icon" onClick={toggleMenu}> 
+            {menuOpen ? "x" : "☰"}
+          </div>
         </div>
-
         <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
           <li className="nav-item">
-            <Link to="/about" onClick={closeMenu} className="nav-links">About</Link>
+            <Link to="/about" onClick={closeMenu} 
+            className="nav-links">About</Link>
           </li>
           <li className="nav-item">
             <Link to="/education" onClick={closeMenu} className="nav-links">Education</Link>
