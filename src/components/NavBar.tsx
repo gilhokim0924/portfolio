@@ -18,9 +18,9 @@ const NavBar = () => {
     <nav className="navbar">
       <div className={`navbar-container ${menuOpen ? 'open' : ''}`}>
         <div className="navbar-logo-menu-container">
-          <Link to="/" onClick={closeMenu} className="navbar-logo">
+          <a href="/#profile" onClick={closeMenu} className="navbar-logo">
             Gilho Kim
-          </Link>
+          </a>
           {/* Mobile Menu Button */}
           <div className="navbar-menu-icon" onClick={toggleMenu}> 
             {menuOpen ? "x" : "☰"}
@@ -28,11 +28,8 @@ const NavBar = () => {
         </div>
         <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
           <li className="nav-item">
-            <Link to="/about" onClick={closeMenu} 
-            className="nav-links">About</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/education" onClick={closeMenu} className="nav-links">Education</Link>
+            <a href="/#about" onClick={closeMenu} 
+            className="nav-links">About</a>
           </li>
           <li className="nav-item">
             <Link to="/experience" onClick={closeMenu} className="nav-links">Experience</Link>
