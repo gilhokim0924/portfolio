@@ -34,6 +34,9 @@
   text-decoration: none;
   color: inherit;
 }
+.navbar-logo:hover {
+  cursor: pointer;
+}
 
 .nav-menu {
   width: 600px;
@@ -58,6 +61,7 @@
   border-radius: 15px;
 }
 .nav-links:hover {
+  cursor: pointer;
   font-size: 1.4rem;
   background: linear-gradient(
     to bottom right,

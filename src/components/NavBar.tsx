@@ -18,31 +18,43 @@ const NavBar = ({onContactClick} : NavBarProps) => {
     setMenuOpen(false);
   }
 
+  // Auto Scroll
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({behavior: 'auto'});
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className={`navbar-container ${menuOpen ? 'open' : ''}`}>
         <div className="navbar-logo-menu-container">
-          <a href="/#profile" onClick={closeMenu} className="navbar-logo">
+          <div onClick={() => {scrollToSection('profile'); closeMenu}} 
+            className="navbar-logo">
             Gilho Kim
-          </a>
+          </div>
           {/* Mobile Menu Button */}
-          <div className="navbar-menu-icon" onClick={toggleMenu}> 
-            {menuOpen ? <IoClose /> : <IoMenu />}
+          <div className="navbar-menu-icon" 
+           onClick={toggleMenu}> {menuOpen ? <IoClose /> : <IoMenu />}
           </div>
         </div>
         <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
           <li className="nav-item">
-            <a href="/#about" onClick={closeMenu} 
-            className="nav-links">About</a>
+            <div onClick={() => {scrollToSection('about'); closeMenu()}} 
+            className="nav-links">About</div>
           </li>
           <li className="nav-item">
-            <a href="/#experience" onClick={closeMenu} className="nav-links">Experience</a>
+            <div onClick={() => {scrollToSection('experience'); closeMenu()}} 
+              className="nav-links">Experience</div>
           </li>
           <li className="nav-item">
-            <a href="/#projects" onClick={closeMenu} className="nav-links">Projects</a>
+            <div onClick={() => {scrollToSection('projects'); closeMenu()}}
+              className="nav-links">Projects</div>
           </li>
           <li className="nav-item">
-            <a href="/#contacts" onClick={() => { closeMenu(); onContactClick(); }} className="nav-links">Contact</a>
+            <div onClick={() => { closeMenu(); onContactClick(); }}
+              className="nav-links">Contact</div>
           </li>
         </ul>
       </div>

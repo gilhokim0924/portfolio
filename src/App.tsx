@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import React from "react";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -13,12 +14,12 @@ function App() {
   const closeContact = () => {setIsContactModal(false);}
 
   return (
-    <BrowserRouter>
+    <Router>
       <NavBar onContactClick={openContact} />
       <Routes>
         <Route path="/" element={<Home contactModal={contactModal} closeContact={closeContact}/>} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   )
 }
 

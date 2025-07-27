@@ -2,10 +2,15 @@ import React from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+// @ts-ignore
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/effect-coverflow";
+// @ts-ignore
 import "swiper/css/navigation";
+// @ts-ignore
 import "swiper/css/pagination";
+// @ts-ignore
 import "swiper/css/scrollbar";
 
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -111,7 +116,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
           </div>
           <div className="about-me-text">
             <p>
-              Hello! I'm Gilho. I was born in Suwon, South Korea, but I have spent my middle and high school years in Thailand. I have received a computer science degree from Stony Brook University with interests in Artificial Intelligence and Software Development. I love exploring new technologies related to A.I. and Software Development. Personally, I love to explore new places and countries for more variable experiences.
+              Hello! I'm Gilho. I was born in Suwon, South Korea, but I have spent my childhood in Thailand. I have received a computer science degree from Stony Brook University with interests in Artificial Intelligence and Software Development. I love exploring new technologies related to A.I. and Software Development. Personally, I love to explore new places and countries for more variable experiences.
             </p>
           </div>
 
