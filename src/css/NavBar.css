@@ -84,15 +84,7 @@
   */
 @media screen and (max-width: 900px) {
   .navbar-logo {
-    width: 150px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2%;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: inherit;
+    margin-left: 10px;
   }
 
   .navbar-container.open{

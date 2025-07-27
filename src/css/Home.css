@@ -286,6 +286,11 @@
   width: 100%;
   height: 100%;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-decoration: none;
   color: black; 
   background-color: white;
@@ -318,13 +323,15 @@
 }
 
 .experience-card-text{
-  width: 100%;
+  width: 85%;
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-size: 15px;
+  overflow: hidden;
 }
 
 
@@ -551,6 +558,17 @@
   .experience-swiper-card{
     width: 100% !important;
     height: 80%;
+  }
+
+  .experience-card-text{
+    width: 85%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
   }
 
   /* Contact section */
