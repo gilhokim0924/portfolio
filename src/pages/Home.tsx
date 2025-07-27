@@ -29,28 +29,28 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
   const experiencesData = [
     {
       link: "/roka",
-      image: "/experience/roka_logo.jpg",
+      image: "experience/roka_logo.jpg",
       alt: "ROKA Logo",
       company: "Republic of Korea Army",
       date: "July 2021 - January 2023",
       position: "Sergeant",
     },
     {
-      image: "/experience/igc_logo.png",
+      image: "experience/igc_logo.png",
       alt: "IGC Logo",
       company: "Incheon Global Campus Library",
       date: "February 2023 - June 2024",
       position: "Student Library Assistant",
     },
     {
-      image: "/experience/mediearth_logo.png",
+      image: "experience/mediearth_logo.png",
       alt: "Mediearth Logo",
       company: "MediEarth",
       date: "October 2023 - December 2023",
       position: "Freelance Software Developer",
     },
     {
-      image: "/experience/bcl_logo.png",
+      image: "experience/bcl_logo.png",
       alt: "BCL Logo",
       company: "Brain-Inspired Computing Lab",
       date: "June 2024 - July 2025",
@@ -60,13 +60,13 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
 
   const projectData = [
     {
-      image: "/project/lava_project.png",
+      image: "project/lava_project.png",
       alt: "SDNN",
       title: "Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Energy-Efficient Object Detection on Neuromorphic Hardware",
       type: "Research Paper",
     },
     {
-      image: "/project/startup.jpg",
+      image: "project/startup.jpg",
       alt: "Startup Package Program",
       title: "2025 Preliminary Startup Package program organized by the Ministry of SMEs and Startups (MSS) of Korea",
       type: "Government Startup Program",
@@ -87,7 +87,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
     <body>
       <section id = "profile">
         <div className="profile-picture">
-          <img src = "/profile_picture.jpeg" alt = "Profile" />
+          <img src = "profile_picture.jpeg" alt = "Profile" />
         </div>
         <div className="profile-text-links">
           <div className="profile-text">
@@ -97,13 +97,13 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
           </div>
           <div className="profile-links">
             <a href="https://github.com/gilhokim0924" target="_blank">
-                <img src = "/sns/github.svg" alt = "GitHub" className="profile-link-img"/>
+                <img src = "sns/github.svg" alt = "GitHub" className="profile-link-img"/>
             </a>
             <a href="https://www.linkedin.com/in/gilho-kim/" target="_blank">
-                <img src = "/sns/linkedin.svg" alt = "Linkedin" className="profile-link-img"/>
+                <img src = "sns/linkedin.svg" alt = "Linkedin" className="profile-link-img"/>
             </a>
             <a href="https://www.youtube.com/@g_il__h_o__" target="_blank">
-                <img src = "/sns/youtube.svg" alt = "Youtube" className="profile-link-img"/>
+                <img src = "sns/youtube.svg" alt = "Youtube" className="profile-link-img"/>
             </a>
           </div>
         </div>
@@ -124,7 +124,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
         <div className="about-school-container">
           <a href="https://www.ics.ac.th" target="_blank" className="about-hs-container">
             <div className="about-school-logo"> 
-              <img id="ics-logo" src="/education/ics_logo.png" alt="ICS Logo" />
+              <img id="ics-logo" src="education/ics_logo.png" alt="ICS Logo" />
             </div>
             <div className="about-school-text">
               <p className="school-name-text">International Community School of Bangkok</p>
@@ -138,7 +138,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
           </a>
           <a href="https://www.stonybrook.edu" target="_blank" className="about-uni-container">
             <div className="about-school-logo"> 
-              <img id="sbu-logo" src="/education/sbu_logo.png" alt="SBU Logo" />
+              <img id="sbu-logo" src="education/sbu_logo.png" alt="SBU Logo" />
             </div>
             <div className="about-school-text">
               <p className="school-name-text">Stony Brook University, New York</p>
@@ -244,7 +244,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
           <div className="overlay">
             <div className="contact-container">
               <div className="contact-btn-container">
-                <a href="/gilhokim.png" download>
+                <a href="gilhokim.png" download>
                   <button className="contact-download-btn">
                     <MdOutlineFileDownload /></button>
                 </a>
