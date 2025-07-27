@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
@@ -10,37 +8,75 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+import { MdOutlineFileDownload } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
+
 import '../css/Home.css'; 
 
-const Home: React.FC = () => {
+type HomeProps = {
+  contactModal: boolean;
+  closeContact: () => void;
+}
 
+
+const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
+  // Dummy data for experiences and projects
   const experiencesData = [
-  {
-    link: "/roka",
-    image: "/experience/roka_logo.jpg",
-    alt: "ROKA Logo",
-    company: "Republic of Korea Army",
-    date: "July 2021 - January 2023",
-  },
-  {
-    image: "/experience/igc_logo.png",
-    alt: "IGC Logo",
-    company: "Incheon Global Campus Library",
-    date: "February 2023 - June 2024",
-  },
-  {
-    image: "/experience/mediearth_logo.png",
-    alt: "Mediearth Logo",
-    company: "Medi Earth",
-    date: "October 2023 - December 2023",
-  },
-  {
-    image: "/experience/bcl_logo.png",
-    alt: "BCL Logo",
-    company: "Brain-Inspired Computing Lab",
-    date: "June 2024 - July 2025",
-  },
-];
+    {
+      link: "/roka",
+      image: "/experience/roka_logo.jpg",
+      alt: "ROKA Logo",
+      company: "Republic of Korea Army",
+      date: "July 2021 - January 2023",
+      position: "Sergeant",
+    },
+    {
+      image: "/experience/igc_logo.png",
+      alt: "IGC Logo",
+      company: "Incheon Global Campus Library",
+      date: "February 2023 - June 2024",
+      position: "Student Library Assistant",
+    },
+    {
+      image: "/experience/mediearth_logo.png",
+      alt: "Mediearth Logo",
+      company: "MediEarth",
+      date: "October 2023 - December 2023",
+      position: "Freelance Software Developer",
+    },
+    {
+      image: "/experience/bcl_logo.png",
+      alt: "BCL Logo",
+      company: "Brain-Inspired Computing Lab",
+      date: "June 2024 - July 2025",
+      position: "Undergraduate Research Assistant",
+    },
+  ];
+
+  const projectData = [
+    {
+      image: "/project/lava_project.png",
+      alt: "SDNN",
+      title: "Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Energy-Efficient Object Detection on Neuromorphic Hardware",
+      type: "Research Paper",
+    },
+    {
+      image: "/project/startup.jpg",
+      alt: "Startup Package Program",
+      title: "2025 Preliminary Startup Package program organized by the Ministry of SMEs and Startups (MSS) of Korea",
+      type: "Government Startup Program",
+    },
+    {
+      image: "/projects/project3.png",
+      alt: "Project 3",
+      title: "Project 3",
+    },
+    {
+      image: "/projects/project4.png",
+      alt: "Project 4",
+      title: "Project 4",
+    },
+  ]
 
   return (
     <body>
@@ -122,7 +158,7 @@ const Home: React.FC = () => {
             centeredSlides={true}
             coverflowEffect={{
                 rotate: 0,
-                stretch: 0,
+                stretch: 5,
                 depth: 100,
                 modifier: 2.5,
                 slideShadows: false,
@@ -146,6 +182,8 @@ const Home: React.FC = () => {
                   <div className="experience-card-text">
                     <p>{data.company}</p>
                     <p>{data.date}</p>
+                    <br></br>
+                    <p>{data.position}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -155,9 +193,64 @@ const Home: React.FC = () => {
       </section>
 
       <section id="projects">
-
+        <div className="experience-container">
+          <Swiper
+            className="experience-swiper"
+            effect={"coverflow"}
+            grabCursor={true} 
+            centeredSlides={true}
+            coverflowEffect={{
+                rotate: 0,
+                stretch: 5,
+                depth: 100,
+                modifier: 2.5,
+                slideShadows: false,
+            }}
+            spaceBetween={20}
+            breakpoints={{
+              900: {slidesPerView: 1, centeredSlides: false, spaceBetween: 10, effect: "none"},
+              901: {slidesPerView: 3, centeredSlides: true, spaceBetween: 20, effect:"coverflow"},
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            
+            modules={[EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay]}
+          >
+            {projectData.map((data, index) => (
+              <SwiperSlide key={index} className="experience-swiper-card">
+                <div className="experience-card">
+                  <div className="experience-card-image">
+                    <img src={data.image} alt={data.alt} />
+                  </div>
+                  <div className="experience-card-text">
+                    <p>{data.title}</p>
+                    <br></br>
+                    <p>{data.type}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </section>
-      
+
+      {contactModal && (
+        <section id="contact">
+          <div className="overlay">
+            <div className="contact-container">
+              <div className="contact-btn-container">
+                <a href="/gilhokim.png" download>
+                  <button className="contact-download-btn">
+                    <MdOutlineFileDownload /></button>
+                </a>
+                <button className="contact-close-btn" 
+                onClick={closeContact}><IoClose /></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
     </body>
   );
 }

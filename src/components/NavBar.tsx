@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import '../css/NavBar.css';
+import { IoClose, IoMenu } from "react-icons/io5";
 
-const NavBar = () => {
+// Contact Modal 
+type NavBarProps = {onContactClick: () => void};
 
+
+const NavBar = ({onContactClick} : NavBarProps) => {
+  // Navbar state for mobile environment
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
@@ -23,7 +27,7 @@ const NavBar = () => {
           </a>
           {/* Mobile Menu Button */}
           <div className="navbar-menu-icon" onClick={toggleMenu}> 
-            {menuOpen ? "x" : "☰"}
+            {menuOpen ? <IoClose /> : <IoMenu />}
           </div>
         </div>
         <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
@@ -35,10 +39,10 @@ const NavBar = () => {
             <a href="/#experience" onClick={closeMenu} className="nav-links">Experience</a>
           </li>
           <li className="nav-item">
-            <Link to="/projects" onClick={closeMenu} className="nav-links">Projects</Link>
+            <a href="/#projects" onClick={closeMenu} className="nav-links">Projects</a>
           </li>
           <li className="nav-item">
-            <Link to="/contact" onClick={closeMenu} className="nav-links">Contact</Link>
+            <a href="/#contacts" onClick={() => { closeMenu(); onContactClick(); }} className="nav-links">Contact</a>
           </li>
         </ul>
       </div>

@@ -274,6 +274,7 @@
 .experience-swiper{
   width: 90%;
   height: 90%; 
+  padding: 15px;
 }
 
 .experience-swiper-card{
@@ -323,12 +324,111 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 
+/* projects section */
+#projects{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+
+/* contact section */
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container{
+  width: 506px;
+  height: 320px;
+
+  background-color: white;
+  background-image: url('/gilhokim.png');
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.contact-btn-container{
+  width: 100%;
+  height: 100%;
   
+  display: flex;
+  align-items:first baseline;
+  justify-content: end;
+}
+.contact-btn-container a{
+  text-decoration: none;
+  color: black;
+}
 
+.contact-download-btn{
+  all: unset;
+  cursor: pointer;
+
+  width: 45px;
+  height: 45px;
+  margin: 10px 0px;
+
+  font-size: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+.contact-download-btn:hover{
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
+  inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  transition: all 0.4s ease;
+}
+
+.contact-close-btn{
+  all: unset;
+  cursor: pointer;
+
+  width: 45px;
+  height: 45px;
+  margin: 10px 10px 10px 0px;
+
+  font-size: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+.contact-close-btn:hover{
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
+  inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  transition: all 0.4s ease;
+}
 
 /**
   * Mobile View
@@ -451,6 +551,17 @@
   .experience-swiper-card{
     width: 100% !important;
     height: 80%;
+  }
+
+  /* Contact section */
+  .contact-container{
+    width: 337px;
+    height: 213px;
+
+    background-color: white;
+    background-image: url('/gilhokim.png');
+    background-size: cover;
+    border-radius: 15px;
   }
 
 }
