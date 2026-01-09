@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import { Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 // @ts-ignore
 import "swiper/css";
 // @ts-ignore
