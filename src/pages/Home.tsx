@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
@@ -25,36 +26,65 @@ type HomeProps = {
 
 
 const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to section on return
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const section = document.getElementById(location.state.scrollTo);
+      if (section) {
+        section.scrollIntoView({ behavior: 'auto' });
+      }
+    }
+  }, [location]);
+
   // Dummy data for experiences and projects
   const experiencesData = [
     {
-      link: "/roka",
+      link: "https://www.army.mil.kr/english/index.do",
       image: "experience/roka_logo.jpg",
       alt: "ROKA Logo",
       company: "Republic of Korea Army",
-      date: "July 2021 - January 2023",
-      position: "Sergeant",
+      date: "Jul 2021 - Jan 2023 · 1 yr 7 mos",
+      position: "Army Sergeant · Full-time",
+      description: "Served as an Army Sergeant in the Republic of Korea Army. Completed mandatory military service with full-time commitment, demonstrating leadership, discipline, and teamwork in a structured military environment.",
     },
     {
+      link: "https://www.igc.or.kr/en/campus/library.do",
       image: "experience/igc_logo.png",
       alt: "IGC Logo",
       company: "Incheon Global Campus Library",
-      date: "February 2023 - June 2024",
-      position: "Student Library Assistant",
+      date: "Feb 2023 - Jun 2024 · 1 yr 5 mos",
+      position: "Student Library Assistant · Part-time",
+      description: "Managed a digital database of over 60,000 book entries while assisting professors and students from 5 universities in accessing academic resources. Collaborated with librarians to organize campus-wide events that enhanced student engagement with library services.",
     },
     {
+      link: "https://mediearth.net",
       image: "experience/mediearth_logo.png",
       alt: "Mediearth Logo",
       company: "MediEarth",
-      date: "October 2023 - December 2023",
-      position: "Freelance Software Developer",
+      date: "Aug 2023 - Dec 2023 · 5 mos",
+      position: "Web Developer · Freelance",
+      description: "Designed and implemented multilingual website features in Korean, English, and Thai using HTML, CSS, and JavaScript. Released an updated website version using version control to streamline deployment and ensured translation accuracy across all supported languages for a seamless user experience.",
     },
     {
+      link: "https://sites.google.com/view/suny-bcl/home",
       image: "experience/bcl_logo.png",
       alt: "BCL Logo",
       company: "Brain-Inspired Computing Lab",
-      date: "June 2024 - July 2025",
-      position: "Undergraduate Research Assistant",
+      date: "Jun 2024 - Jul 2025 · 1 yr 2 mos",
+      position: "Undergraduate Research Assistant · Seasonal",
+      description: "Conducted research in artificial intelligence with a focus on Spiking Neural Networks (SNN) for low-power, event-driven computer vision applications. Work involved experiments with YOLO architectures (YOLOv3, YOLOv8, Darknet), developing reference models, and adapting static image datasets for the Sigma Delta Neural Network (SDNN) to bridge conventional and neuromorphic approaches.\n\nProposed a novel learning algorithm that improved the training accuracy of the Sigma-Delta Spiking YOLO network by up to 4.08%, and co-authored a paper currently under review with IEEE Access.",
+    },
+    {
+      link: "https://www.projectbasta.com/code2career",
+      image: "experience/basta_logo.jpeg",
+      alt: "BASTA Logo",
+      company: "BASTA",
+      date: "Oct 2025 - Dec 2025 · 3 mos",
+      position: "Software Engineering Program · Apprenticeship",
+      description: "Selected from a highly competitive applicant pool to engage in 10 weeks of pair programming and mentorship with a Google Software Engineer. Participated in regular weekly coding sessions to strengthen foundational coding skills, enhance problem-solving abilities, and grow as a Software Developer.",
     },
   ];
 
@@ -62,24 +92,16 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
     {
       image: "project/lava_project.png",
       alt: "SDNN",
-      title: "Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Energy-Efficient Object Detection on Neuromorphic Hardware",
-      type: "Research Paper",
+      title: "Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Neuromorphic Hardware",
+      type: "Research Paper · IEEE Access (Under Revision)",
+      description: "Research on Energy-Efficient Object Detection using Spiking Neural Networks (SNNs)\nSubmitted for publication in IEEE Access (Currently under revision).\n\nProject Overview:\nConducted research to enhance the training and inference performance of Sigma-Delta spiking object detectors for deployment on low-power neuromorphic hardware. Addressed the challenge of non-differentiable spike functions in SNN training.\n\nKey Contributions:\n• Algorithm Development: Proposed a novel Epoch-Based Dynamic Surrogate Gradient Descent (ED-SGD) algorithm that dynamically modulates surrogate gradients to balance exploration and stabilization during training.\n• Optimization: Integrated SGDR (Cosine-Annealing with Warm Restarts) and MG-SGD (Multi-Gaussian surrogate gradients) to improve convergence behavior in spike-driven training.\n• Hardware Deployment: Successfully deployed the trained SDNN Tiny YOLOv3 model on Intel's Loihi 2 neuromorphic platform.\n\nPerformance Evaluation:\nValidated on BDD100K, Udacity Self-Driving, and SoccerNet datasets. The proposed ED-SGD method achieved the highest detection accuracy (mAP@0.5 of 18.53% on BDD100K), outperforming the baseline.\n\nEnergy Efficiency:\nDemonstrated that the Loihi 2 implementation consumes approximately 495x to 731x lower energy compared to conventional CNN-based YOLOv3 models running on NVIDIA RTX 4080 GPUs.",
     },
     {
       image: "project/startup.jpg",
       alt: "Startup Package Program",
-      title: "2025 Preliminary Startup Package program organized by the Ministry of SMEs and Startups (MSS) of Korea",
-      type: "Government Startup Program",
-    },
-    {
-      image: "/projects/project3.png",
-      alt: "Project 3",
-      title: "Project 3",
-    },
-    {
-      image: "/projects/project4.png",
-      alt: "Project 4",
-      title: "Project 4",
+      title: "IoT Smart Minibar MVP Development",
+      type: "Government-Funded R&D Project · Ministry of SMEs and Startups",
+      description: "Project Lead for the government-funded R&D project hosted by the Ministry of SMEs and Startups (MSS).\n\nProject Goal:\nTo develop a market-ready IoT Smart Minibar MVP and validate its commercial feasibility within 8 months.\n\nFunding Secured:\nSuccessfully led the proposal and pitch presentation, securing approximately $15,000 USD (KRW 20M) in grant funding.\n\nRole & Execution:\nManaged the entire project lifecycle from budget planning to prototype development and global field testing.\n\nKey Outcome:\nSuccessfully delivered the final prototype featuring real-time inventory tracking and QR payment modules, achieving pilot deployment in Thailand.",
     },
   ]
 
@@ -158,25 +180,23 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
         <div className="experience-container">
           <Swiper
             className="experience-swiper"
-            effect={"coverflow"}
-            grabCursor={true} 
+            grabCursor={true}
             centeredSlides={true}
-            coverflowEffect={{
-                rotate: 0,
-                stretch: 5,
-                depth: 100,
-                modifier: 2.5,
-                slideShadows: false,
-            }}
             spaceBetween={20}
             breakpoints={{
-              900: {slidesPerView: 1, centeredSlides: false, spaceBetween: 10, effect: "none"},
-              901: {slidesPerView: 3, centeredSlides: true, spaceBetween: 20, effect:"coverflow"},
+              0: {slidesPerView: 1, centeredSlides: true, spaceBetween: 20},
+              901: {slidesPerView: 3, centeredSlides: true, spaceBetween: 30},
             }}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 2500 }}
-            
-            modules={[EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay]}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            preventClicks={false}
+            preventClicksPropagation={false}
+            allowTouchMove={true}
+            slideToClickedSlide={false}
+            observer={true}
+            observeParents={true}
+
+            modules={[Pagination, Scrollbar, A11y, Autoplay]}
           >
             {experiencesData.map((data, index) => (
               <SwiperSlide key={index} className="experience-swiper-card">
@@ -189,6 +209,24 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
                     <p>{data.date}</p>
                     <br></br>
                     <p>{data.position}</p>
+                    <button
+                      className="view-more-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/detail', {
+                          state: {
+                            image: data.image,
+                            title: data.company,
+                            subtitle: `${data.position} | ${data.date}`,
+                            description: data.description,
+                            returnSection: 'experience',
+                            link: data.link // Pass the link to DetailPage
+                          }
+                        });
+                      }}
+                    >
+                      View More
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -201,25 +239,23 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
         <div className="experience-container">
           <Swiper
             className="experience-swiper"
-            effect={"coverflow"}
-            grabCursor={true} 
+            grabCursor={true}
             centeredSlides={true}
-            coverflowEffect={{
-                rotate: 0,
-                stretch: 5,
-                depth: 100,
-                modifier: 2.5,
-                slideShadows: false,
-            }}
             spaceBetween={20}
             breakpoints={{
-              900: {slidesPerView: 1, centeredSlides: false, spaceBetween: 10, effect: "none"},
-              901: {slidesPerView: 3, centeredSlides: true, spaceBetween: 20, effect:"coverflow"},
+              0: {slidesPerView: 1, centeredSlides: true, spaceBetween: 20},
+              901: {slidesPerView: 3, centeredSlides: true, spaceBetween: 30},
             }}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 2500 }}
-            
-            modules={[EffectCoverflow, Pagination, Scrollbar, A11y, Autoplay]}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            preventClicks={false}
+            preventClicksPropagation={false}
+            allowTouchMove={true}
+            slideToClickedSlide={false}
+            observer={true}
+            observeParents={true}
+
+            modules={[Pagination, Scrollbar, A11y, Autoplay]}
           >
             {projectData.map((data, index) => (
               <SwiperSlide key={index} className="experience-swiper-card">
@@ -231,6 +267,24 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
                     <p>{data.title}</p>
                     <br></br>
                     <p>{data.type}</p>
+                    <button
+                      className="view-more-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/detail', {
+                          state: {
+                            image: data.image,
+                            title: data.title,
+                            subtitle: data.type,
+                            description: data.description,
+                            returnSection: 'projects',
+                            link: (data as any).link // Support links if they are added later
+                          }
+                        });
+                      }}
+                    >
+                      View More
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -244,7 +298,7 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
           <div className="overlay">
             <div className="contact-container">
               <div className="contact-btn-container">
-                <a href="gilhokim.png" download>
+                <a href="gilhokim.png" download="gilhokim-contact.png">
                   <button className="contact-download-btn">
                     <MdOutlineFileDownload /></button>
                 </a>

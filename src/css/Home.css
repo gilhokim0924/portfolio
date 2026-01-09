@@ -4,16 +4,22 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .profile-picture{
   width: clamp(200px, 30%, 400px);
   height: auto;
+  /* Add a soft glow behind the profile picture */
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
 }
 .profile-picture img{
   width: 100%;
   height: auto;
   border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .profile-text-links{
@@ -30,15 +36,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #1d1d1f; /* Apple text color */
 }
 .profile-text p:first-child {
   font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 500;
 }
 .profile-text p:nth-child(2) {
   font-size: clamp(2.5rem, 3.5vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #1d1d1f 0%, #434344 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .profile-text p:nth-child(3) {
   font-size: clamp(1.5rem, 2vw, 2.0rem);
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .profile-links{
@@ -55,6 +69,11 @@
   display: flex;
   align-items: center;
   margin: 0 1rem;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+.profile-link-img:hover {
+  transform: scale(1.15);
 }
 
 
@@ -62,10 +81,28 @@
 /* About Section */
 #about{
   width: 100%;
+  max-width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Common Liquid Glass Card Style */
+.about-me-container, .about-hs-container, .about-uni-container {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border-radius: 24px; /* Larger, smoother corners */
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 /* total width: 450+20+700= 1170px with 20px margin*/
@@ -75,30 +112,17 @@
   height: 70vh;
   min-height: 600px;
   max-height: 700px;
-
   margin:0 10px 0 20px;
-  
-  background-color: white;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
-
-  transition: 
-    transform 0.2s ease-out, 
-    box-shadow 0.2s ease-out, 
-    backdrop-filter 0.2s ease-out, 
-    border-color 0.2s ease-out;
 }
 .about-me-container:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .about-me-image{
   width: 100%;
   height: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,23 +131,25 @@
   width: 65%;
   max-width: 250px;
   height: auto;
-  border-radius: 15px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .about-me-text{
   width: 100%;
   height: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: left;
   overflow: hidden;
+  color: #1d1d1f;
 }
 
 .about-me-text p{
   font-size: 15px;
   margin: 35px;
+  line-height: 1.6;
 }
 
 .about-school-container{
@@ -132,9 +158,7 @@
   height: 70vh;
   min-height: 600px;
   max-height: 700px;
-
   margin: 0 20px 0 10px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,75 +168,48 @@
 .about-hs-container{
   width: 100%;
   height: 50%;
-
   margin-bottom: 10px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
-  color: black;
-  background-color: white;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
-
-  transition: 
-    transform 0.3s ease-out, 
-    box-shadow 0.3s ease-out, 
-    backdrop-filter 0.3s ease-out, 
-    border-color 0.3s ease-out;
+  color: #1d1d1f;
 }
 .about-hs-container:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
 
 .about-uni-container{
   width: 100%;
   height: 50%;
-
   margin-top: 10px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
-  color: black; 
-  background-color: white;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
-
-  transition: 
-    transform 0.2s ease-out, 
-    box-shadow 0.2s ease-out, 
-    backdrop-filter 0.2s ease-out, 
-    border-color 0.2s ease-out;
+  color: #1d1d1f; 
 }
 .about-uni-container:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
 
 .about-school-logo{
   width: 40%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .about-school-logo img{
   width: 90%;
   height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 #ics-logo{
   scale: 0.75;
@@ -224,17 +221,18 @@
 .about-school-text{
   width: 60%;
   height: 100%;
-
   display: flex;
   flex-direction: column; 
 }
 .school-name-text{
   font-size: 15px;
   margin: 20px 10px 0 10px;
+  font-weight: 600;
 }
 .school-year-text{
   font-size: 15px;
   margin: 0 10px 30px 10px;
+  opacity: 0.8;
 }
 .school-about-text{
   font-size: 14px;
@@ -245,10 +243,12 @@
 /* Experience Section */
 #experience{
   width: 100%;
+  max-width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .experience-container{
@@ -257,24 +257,24 @@
   height: 75vh;
   min-height: 600px;
   max-height: 700px;
-
   margin:0 20px 0 20px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   
-  background-color: white;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  /* Glass Container for the whole slider area */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border-radius: 30px;
 }
 
 .experience-swiper{
   width: 90%;
   height: 90%; 
-  padding: 15px;
+  padding: 50px; /* Increased padding to prevent shadow/corner clipping */
 }
 
 .experience-swiper-card{
@@ -282,31 +282,50 @@
   height: 90%;
 }
 
+.experience-swiper-card.swiper-slide-active {
+  z-index: 50 !important;
+}
+
 .experience-card{
   width: 100%;
   height: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
-  color: black; 
-  background-color: white;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
-
-  transition: 
-    transform 0.2s ease-out, 
-    box-shadow 0.2s ease-out, 
-    backdrop-filter 0.2s ease-out, 
-    border-color 0.2s ease-out;
-}
-.experience-card:hover {
+  color: #1d1d1f;
   
+  position: relative;
+  z-index: 1;
+  
+  border-radius: 30px; /* Ensure parent has radius too */
+
+  transition: transform 0.3s ease-out;
+  overflow: visible;
+}
+
+/* The Glass Card Effect */
+.experience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 30px; /* Increased for smoother look */
+  
+  background: rgba(255, 255, 255, 0.4); /* Match container opacity */
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Match container border */
+  /* Shadow removed */
+  
+  transition: all 0.3s ease-out;
+}
+
+.experience-card:hover::before {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
 }
 
 .experience-card-image{
@@ -315,33 +334,113 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1; /* Lower priority than text */
 }
 .experience-card-image img{
   width: 80%;
   max-width: 300px;
   height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 20px; /* Smooth rounded corners */
+  mix-blend-mode: multiply; /* Blends white image background with card */
 }
 
 .experience-card-text{
   width: 85%;
-  height: 50%;
+  flex: 1; /* Take up remaining height */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: flex-start;  Align content to top */
+  justify-content: start;
   text-align: center;
   font-size: 15px;
-  overflow: hidden;
+  overflow: hidden; /* Prevent text from pushing layout too much */
+  z-index: 5; 
+  padding-bottom: 10px;
+}
+
+/* Apple-style Typography Hierarchy */
+.experience-card-text p:nth-of-type(1) {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.experience-card-text p:nth-of-type(2) {
+  font-size: 13px;
+  font-weight: 400;
+  color: #86868b; /* Apple's secondary label color */
+  margin-bottom: 8px;
+}
+
+.experience-card-text p:nth-of-type(3) {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1d1d1f;
+  line-height: 1.4;
+}
+
+/* Apple-style Blue Pill Button */
+.view-more-btn{
+  margin-top: auto; /* Push to bottom */
+  margin-bottom: 20px; /* Consistent spacing from bottom edge */
+  padding: 10px 24px;
+  
+  background: linear-gradient(135deg, #007AFF 0%, #0062cc 100%);
+  color: white;
+  border: none;
+  border-radius: 999px; /* Pill shape */
+  
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3px;
+  
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  z-index: 10;
+  position: relative;
+  pointer-events: auto;
+  
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+.view-more-btn:hover{
+  background: linear-gradient(135deg, #0084ff 0%, #007AFF 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.4);
+}
+
+.view-more-btn:active{
+  transform: translateY(0) scale(0.98);
+}
+
+/* Fix for Swiper Shadows blocking interactions */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right,
+.swiper-slide-shadow-top,
+.swiper-slide-shadow-bottom,
+.swiper-slide-shadow-coverflow,
+.swiper-slide-shadow {
+  pointer-events: none !important;
 }
 
 
 /* projects section */
 #projects{
   width: 100%;
+  max-width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 
@@ -353,6 +452,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px); /* Add blur to overlay */
   z-index: 9999;
 
   display: flex;
@@ -364,10 +464,11 @@
   width: 506px;
   height: 320px;
 
-  background-color: white;
+  background-color: rgba(255,255,255,0.9);
   background-image: url('/gilhokim.png');
   background-size: cover;
-  border-radius: 15px;
+  border-radius: 24px; /* Larger radius */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 .contact-btn-container{
@@ -396,18 +497,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 50%;
+  
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 .contact-download-btn:hover{
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.05)
-  );
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
-  inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  border-radius: 30px;
-  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .contact-close-btn{
@@ -423,18 +523,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 50%;
+  
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 .contact-close-btn:hover{
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.05)
-  );
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 
-  inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  border-radius: 30px;
-  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /**
@@ -451,12 +550,12 @@
   .profile-picture{
     width: clamp(200px, 30%, 300px);
   }
-  
+
   .profile-text-links{
     width: 100%;
     margin-top: 1rem;
   }
-  
+
   .profile-text{
     width: 100%;
     height: auto;
@@ -471,12 +570,12 @@
   .profile-text p:nth-child(3) {
     font-size: clamp(1rem, 2.5vw, 2rem);
   }
-  
+
   .profile-links{
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .profile-link-img{
     width: clamp(2rem, 5vw, 3rem);
     margin: 0.5rem;
@@ -499,13 +598,17 @@
     max-width: 800px;
     height: auto;
     max-height: 700px;
-    margin: 100px 0 30px 0;
+    margin: 100px auto 30px auto;
+  }
+
+  .about-me-text p{
+    font-size: 14px;
   }
 
   .about-school-container{
     width: 80%;
     max-width: 800px;
-    margin-top: 100px;
+    margin: 100px auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -522,9 +625,6 @@
     overflow: auto;
   }
 
-  .about-me-text p{
-    font-size: 14px;
-  }
   .about-school-text p{
     font-size: 14px;
   }
@@ -533,54 +633,43 @@
   .experience-container{
     width: 80%;
     max-width: 1170px;
-    height: 40vh;
-
+    height: 60vh;
+    min-height: 500px;
     max-height: 700px;
-
-    margin:0 20px 0 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    background-color: white;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);  /* Safari */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+    margin: 0 20px;
   }
 
   .experience-swiper{
-    width: 90%;
-    height: 80%; 
-    padding: 30px;
-  }
-  .experience-swiper-card{
-    width: 100% !important;
-    height: 80%;
+    width: 100%;
+    height: 100%; 
+    padding: 30px 30px 70px 30px; /* Increased padding to prevent shadow clipping */
   }
 
-  .experience-card-text{
-    width: 85%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
+  .experience-swiper-card{
+    width: 100% !important;
+    height: 100%; /* Fill the swiper height */
+  }
+  
+  /* Simplify mobile card to a single element */
+  .experience-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    overflow: visible;
+    border: none !important;
+  }
+  
+  /* Disable the desktop glass pseudo-element on mobile */
+  .experience-card::before {
+    display: none !important;
   }
 
   /* Contact section */
   .contact-container{
-    width: 337px;
-    height: 213px;
-
-    background-color: white;
-    background-image: url('/gilhokim.png');
-    background-size: cover;
-    border-radius: 15px;
+    width: 85%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 506/320;
   }
 
 }
-  

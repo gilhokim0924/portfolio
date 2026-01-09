@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import React from "react";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <NavBar onContactClick={openContact} />
       <Routes>
         <Route path="/" element={<Home contactModal={contactModal} closeContact={closeContact}/>} />
+        <Route path="/detail" element={<DetailPage />} />
       </Routes>
     </Router>
   )

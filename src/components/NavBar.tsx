@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/NavBar.css';
 import { IoClose, IoMenu } from "react-icons/io5";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // Contact Modal 
 type NavBarProps = {onContactClick: () => void};
@@ -9,6 +10,8 @@ type NavBarProps = {onContactClick: () => void};
 const NavBar = ({onContactClick} : NavBarProps) => {
   // Navbar state for mobile environment
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -20,9 +23,13 @@ const NavBar = ({onContactClick} : NavBarProps) => {
 
   // Auto Scroll
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({behavior: 'auto'});
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({behavior: 'auto'});
+      }
     }
   };
 
@@ -30,7 +37,7 @@ const NavBar = ({onContactClick} : NavBarProps) => {
     <nav className="navbar">
       <div className={`navbar-container ${menuOpen ? 'open' : ''}`}>
         <div className="navbar-logo-menu-container">
-          <div onClick={() => {scrollToSection('profile'); closeMenu}} 
+          <div onClick={() => {scrollToSection('profile'); closeMenu()}}
             className="navbar-logo">
             Gilho Kim
           </div>
@@ -53,7 +60,13 @@ const NavBar = ({onContactClick} : NavBarProps) => {
               className="nav-links">Projects</div>
           </li>
           <li className="nav-item">
-            <div onClick={() => { closeMenu(); onContactClick(); }}
+            <div onClick={() => { 
+                closeMenu(); 
+                onContactClick();
+                if (location.pathname !== '/') {
+                  navigate('/');
+                }
+              }}
               className="nav-links">Contact</div>
           </li>
         </ul>
