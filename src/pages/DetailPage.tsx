@@ -4,6 +4,7 @@ import { IoArrowBack } from 'react-icons/io5';
 import '../css/DetailPage.css';
 
 type DetailPageProps = {
+  stackTable?: { category: string; tools: string }[];
   image: string;
   title: string;
   subtitle: string;
@@ -15,7 +16,7 @@ type DetailPageProps = {
 const DetailPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { image, title, subtitle, description, returnSection, link } = location.state as DetailPageProps;
+  const { image, title, subtitle, description, returnSection, link, stackTable } = location.state as DetailPageProps;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -45,6 +46,27 @@ const DetailPage: React.FC = () => {
             <h1>{title}</h1>
           )}
           <h3>{subtitle}</h3>
+          {stackTable && stackTable.length > 0 && (
+            <div className="detail-stack-table-wrapper">
+              <h4>Stack</h4>
+              <table className="detail-stack-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {stackTable.map((row) => (
+                    <tr key={row.category}>
+                      <td>{row.category}</td>
+                      <td>{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
           <p className="detail-description">{description}</p>
         </div>
       </div>

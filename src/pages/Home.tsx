@@ -73,9 +73,9 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
       image: "experience/bcl_logo.png",
       alt: "BCL Logo",
       company: "Brain-Inspired Computing Lab",
-      date: "Jun 2024 - Jul 2025 · 1 yr 2 mos",
+      date: "Jun 2024 - Dec 2025 · 1 yr 7 mos",
       position: "Undergraduate Research Assistant · Seasonal",
-      description: "Conducted research in artificial intelligence with a focus on Spiking Neural Networks (SNN) for low-power, event-driven computer vision applications. Work involved experiments with YOLO architectures (YOLOv3, YOLOv8, Darknet), developing reference models, and adapting static image datasets for the Sigma Delta Neural Network (SDNN) to bridge conventional and neuromorphic approaches.\n\nProposed a novel learning algorithm that improved the training accuracy of the Sigma-Delta Spiking YOLO network by up to 4.08%, and co-authored a paper currently under review with IEEE Access.",
+      description: "Conducted research in artificial intelligence with a focus on Spiking Neural Networks (SNN) for low-power, event-driven computer vision applications. Work involved experiments with YOLO architectures (YOLOv3, YOLOv8, Darknet), developing reference models, and adapting static image datasets for the Sigma Delta Neural Network (SDNN) to bridge conventional and neuromorphic approaches.\n\nProposed a novel learning algorithm that improved the training accuracy of the Sigma-Delta Spiking YOLO network by up to 4.08%, and co-authored an IEEE Access paper that has been accepted for publication.",
     },
     {
       link: "https://www.projectbasta.com/code2career",
@@ -93,14 +93,32 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
       image: "project/lava_project.png",
       alt: "SDNN",
       title: "Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Neuromorphic Hardware",
-      type: "Research Paper · IEEE Access (Under Revision)",
-      description: "Research on Energy-Efficient Object Detection using Spiking Neural Networks (SNNs)\nSubmitted for publication in IEEE Access (Currently under revision).\n\nProject Overview:\nConducted research to enhance the training and inference performance of Sigma-Delta spiking object detectors for deployment on low-power neuromorphic hardware. Addressed the challenge of non-differentiable spike functions in SNN training.\n\nKey Contributions:\n• Algorithm Development: Proposed a novel Epoch-Based Dynamic Surrogate Gradient Descent (ED-SGD) algorithm that dynamically modulates surrogate gradients to balance exploration and stabilization during training.\n• Optimization: Integrated SGDR (Cosine-Annealing with Warm Restarts) and MG-SGD (Multi-Gaussian surrogate gradients) to improve convergence behavior in spike-driven training.\n• Hardware Deployment: Successfully deployed the trained SDNN Tiny YOLOv3 model on Intel's Loihi 2 neuromorphic platform.\n\nPerformance Evaluation:\nValidated on BDD100K, Udacity Self-Driving, and SoccerNet datasets. The proposed ED-SGD method achieved the highest detection accuracy (mAP@0.5 of 18.53% on BDD100K), outperforming the baseline.\n\nEnergy Efficiency:\nDemonstrated that the Loihi 2 implementation consumes approximately 495x to 731x lower energy compared to conventional CNN-based YOLOv3 models running on NVIDIA RTX 4080 GPUs.",
+      type: "Research Paper · IEEE Access (Accepted, 2026)",
+      link: "https://ieeexplore.ieee.org/document/11357912",
+      description: "Research on Energy-Efficient Object Detection using Spiking Neural Networks (SNNs)\nAccepted for publication in IEEE Access (2026).\n\nCitation:\nD. Kim, G. Kim, M. Jun Kim, S. Yong Lee and Y. S. Yang, \"Advanced Training Algorithms in Sigma-Delta Spiking YOLO for Energy-Efficient Object Detection on Neuromorphic Hardware,\" in IEEE Access, vol. 14, pp. 11251-11264, 2026, doi: 10.1109/ACCESS.2026.3655178.\n\nKeywords:\nTraining; YOLO; Sigma-delta modulation; Neuromorphics; Lava; Computer architecture; Optimization; Hardware; Computational modeling; Neurons; Advanced training algorithms; Sigma-Delta spiking neuron; spiking object detection; surrogate gradient algorithms; neuromorphic hardware.\n\nPublication Link:\nhttps://ieeexplore.ieee.org/document/11357912\n\nProject Overview:\nConducted research to enhance the training and inference performance of Sigma-Delta spiking object detectors for deployment on low-power neuromorphic hardware. Addressed the challenge of non-differentiable spike functions in SNN training.\n\nKey Contributions:\n• Algorithm Development: Proposed a novel Epoch-Based Dynamic Surrogate Gradient Descent (ED-SGD) algorithm that dynamically modulates surrogate gradients to balance exploration and stabilization during training.\n• Optimization: Integrated SGDR (Cosine-Annealing with Warm Restarts) and MG-SGD (Multi-Gaussian surrogate gradients) to improve convergence behavior in spike-driven training.\n• Hardware Deployment: Successfully deployed the trained SDNN Tiny YOLOv3 model on Intel's Loihi 2 neuromorphic platform.\n\nPerformance Evaluation:\nValidated on BDD100K, Udacity Self-Driving, and SoccerNet datasets. The proposed ED-SGD method achieved the highest detection accuracy (mAP@0.5 of 18.53% on BDD100K), outperforming the baseline.\n\nEnergy Efficiency:\nDemonstrated that the Loihi 2 implementation consumes approximately 495x to 731x lower energy compared to conventional CNN-based YOLOv3 models running on NVIDIA RTX 4080 GPUs.",
+    },
+    {
+      image: "project/scalendar.png",
+      alt: "Scalendar",
+      title: "Scalendar - Multi-Sport Calendar App",
+      type: "Cross-Platform Sports App · Web/Desktop/Mobile",
+      link: "https://scalendar-five.vercel.app",
+      stackTable: [
+        { category: "Core (Web)", tools: "React 19, TypeScript, Vite, React Query, React Router, i18next" },
+        { category: "Backend", tools: "Supabase (PostgreSQL, Auth, Row-Level Security)" },
+        { category: "Desktop", tools: "Tauri (macOS .dmg installer)" },
+        { category: "Mobile", tools: "React Native (Expo)" },
+        { category: "DevOps", tools: "Vercel (web), GitHub Actions (CI/CD)" },
+        { category: "Localization", tools: "English, Korean, Spanish, Thai" },
+      ],
+      description: "Scalendar is a cross-platform sports calendar app that aggregates schedules and standings for football (soccer), Formula 1, and baseball in one place. Users can select favorite teams, view a personalized calendar centered on today, explore upcoming events on the Discover page, and check league standings on the Tables page.\n\nLive:\nhttps://scalendar-five.vercel.app\n\nGitHub:\nhttps://github.com/gilhokim0924/Scalendar",
     },
     {
       image: "project/startup.jpg",
       alt: "Startup Package Program",
       title: "IoT Smart Minibar MVP Development",
       type: "Government-Funded R&D Project · Ministry of SMEs and Startups",
+      link: "https://www.globalitleader.com/",
       description: "Project Lead for the government-funded R&D project hosted by the Ministry of SMEs and Startups (MSS).\n\nProject Goal:\nTo develop a market-ready IoT Smart Minibar MVP and validate its commercial feasibility within 8 months.\n\nFunding Secured:\nSuccessfully led the proposal and pitch presentation, securing approximately $15,000 USD (KRW 20M) in grant funding.\n\nRole & Execution:\nManaged the entire project lifecycle from budget planning to prototype development and global field testing.\n\nKey Outcome:\nSuccessfully delivered the final prototype featuring real-time inventory tracking and QR payment modules, achieving pilot deployment in Thailand.",
     },
   ]
@@ -278,7 +296,8 @@ const Home: React.FC<HomeProps> = ({contactModal, closeContact}) => {
                             subtitle: data.type,
                             description: data.description,
                             returnSection: 'projects',
-                            link: (data as any).link // Support links if they are added later
+                            link: (data as any).link, // Support links if they are added later
+                            stackTable: (data as any).stackTable
                           }
                         });
                       }}
